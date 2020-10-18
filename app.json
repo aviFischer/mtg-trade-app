@@ -1,0 +1,12 @@
+{
+  "name": "mtg-trade-app",
+  "displayName": "mtg-trade-app",
+  "expo": {
+    "name": "mtg-trade-app",
+    "slug": "mtg-trade-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
