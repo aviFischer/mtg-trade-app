@@ -6,7 +6,7 @@ import Styles from '../styles/globalStyles';
 const Homescreen = ({ navigation }) => {
   return (
     <View style={Styles.container}>
-      <TouchableOpacity style={Styles.pictureButton}>
+      <TouchableOpacity style={Styles.pictureButton} onPress={() => navigation.navigate('Wishlist')}>
         <ImageBackground style={Styles.image} source={require('../pictures/make-a-wish.jpg')}>
           <Text style={Styles.textOverImage}>Wishlist</Text>
         </ImageBackground>
@@ -22,7 +22,7 @@ const Homescreen = ({ navigation }) => {
         </ImageBackground>
       </TouchableOpacity>
       <TouchableOpacity style={Styles.settingsButton}>
-        <Text style={Styles.text}>Settings</Text>
+        <Text style={Styles.whiteText}>Settings</Text>
       </TouchableOpacity>
     </View>
   );

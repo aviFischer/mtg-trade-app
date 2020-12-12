@@ -1,6 +1,4 @@
-import React from 'react'
 import { StyleSheet } from 'react-native'
-import { color } from 'react-native-reanimated';
 
 const colours = {
   gray: '#aaa',
@@ -14,28 +12,54 @@ const globalStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
+  box: {
+    borderRightColor: 'grey',
+    borderRightWidth: 5,
+    borderLeftColor: 'grey',
+    borderLeftWidth: 5,
+    width: '100%',
+    height: '100%',
+  },
+
+  card: {
+    flexDirection: 'row',
+    height: 50,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    borderBottomWidth: 2,
+  },
+
   row: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
   },
+
   pictureButton: {
     backgroundColor: colours.gray,
     borderWidth: 0,
     width: '100%',
-    height: '30%',
+    flex: 3,
     alignItems: 'center',
     justifyContent: 'center',
   },
   settingsButton: {
-    backgroundColor: colours.gray,
+    backgroundColor: 'black',
     borderWidth: 0,
     width: '100%',
-    height: '10%',
+    flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row'
+  },
+  button: {
+    backgroundColor: 'black',
+    color: 'white',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: 80,
+    flex: 1
   },
   image: {
     height: '100%',
@@ -44,10 +68,15 @@ const globalStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text: {
+  whiteText: {
+    fontSize: 25,
+    color: 'white',
+    padding: 20,
+  },
+  blackText: {
     fontSize: 25,
     color: 'black',
-    padding: 10
+    padding: 20,
   },
   textOverImage: {
     fontSize: 25,
@@ -55,6 +84,23 @@ const globalStyles = StyleSheet.create({
     color: '#fff',
     paddingHorizontal: 10,
     paddingVertical: 5,
+  },
+  
+  cardButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 4,
+    borderWidth: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textInput: {
+    fontSize: 25,
+    padding: 15,
+    color: 'white',
+    backgroundColor: 'black',
+    width: '100%',
+    height: 80,
   },
 })
 
