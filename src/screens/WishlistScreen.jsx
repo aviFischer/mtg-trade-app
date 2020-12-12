@@ -18,8 +18,16 @@ class WishlistScreen extends React.Component {
   }
 
   componentDidMount() {
-    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this.setState({ keyBoardOpen: true }));
-    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.setState({ keyBoardOpen: false }));
+    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
+    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
+  }
+
+  _keyboardDidShow = () => {
+    this.setState({ keyBoardOpen: true });
+  }
+
+  _keyboardDidHide = () => {
+    this.setState({ keyBoardOpen: false }); 
   }
 
   componentWillUnmount() {
@@ -35,7 +43,15 @@ class WishlistScreen extends React.Component {
     var cardList = [];
     var i = 0;
     this.props.wishlist.forEach((card) => {
-      cardList.push(<Card index={i} name={card.name} quantity={card.quantity} onPressIncrement={this.props.increment} onPressDecrement={this.props.decrement} onPressRemove={this.props.removeCard} key={i}/>)
+      cardList.push(<Card
+        index={i}
+        name={card.name}
+        quantity={card.quantity}
+        onPressIncrement={this.props.increment}
+        onPressDecrement={this.props.decrement}
+        onPressRemove={this.props.removeCard}
+        key={i}
+      />)
       i ++;
     });
     return cardList;
@@ -43,7 +59,22 @@ class WishlistScreen extends React.Component {
 
   onChangeText = (text) => {
     this.setState({ cardName: text });
-    if (text.length > 2) console.log(this.findAutocompleteOptions(text));
+  }
+
+  AutoCompleteBox = (props) => {
+    var autocompleteCards = [];
+    props.options.forEach((value) => {
+      autocompleteCards.push(
+        <TouchableOpacity 
+          onPress={() => this.setState({ cardName: value })} 
+          style={styles.autocompleteCard}
+          key={value}
+        >
+          <Text>{value}</Text>
+        </TouchableOpacity>
+      )
+    });
+    return autocompleteCards;
   }
 
   render() {
@@ -62,6 +93,11 @@ class WishlistScreen extends React.Component {
             <Text style={styles.whiteText}>Clear</Text>
           </TouchableOpacity>
         </View>
+        {(this.state.keyBoardOpen && this.state.cardName.length > 2) &&(
+          <ScrollView style={{ width: '100%', height: '100%'}} keyboardShouldPersistTaps='always'>
+            <this.AutoCompleteBox options={this.findAutocompleteOptions(this.state.cardName)}/>
+          </ScrollView>
+        )}
         <ScrollView 
           style={styles.box}
           scrollEnabled={true}

@@ -20,6 +20,11 @@ const globalStyles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+  },
 
   card: {
     flexDirection: 'row',
@@ -29,11 +34,12 @@ const globalStyles = StyleSheet.create({
     justifyContent: 'space-around',
     borderBottomWidth: 2,
   },
-
-  row: {
-    flexDirection: 'row',
+  autocompleteCard: {
+    backgroundColor: colours.darkGray,
+    width: '100%',
+    height: 50,
+    justifyContent: 'center',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
   },
 
   pictureButton: {
