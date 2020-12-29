@@ -21,7 +21,7 @@ const Homescreen = ({ navigation }) => {
           <Text style={Styles.textOverImage}>Trade</Text>
         </ImageBackground>
       </TouchableOpacity>
-      <TouchableOpacity style={Styles.settingsButton}>
+      <TouchableOpacity style={Styles.settingsButton} onPress={() => navigation.navigate('Settings')}>
         <Text style={Styles.whiteText}>Settings</Text>
       </TouchableOpacity>
     </View>

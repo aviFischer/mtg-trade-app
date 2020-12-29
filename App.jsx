@@ -7,6 +7,7 @@ import { createStore } from 'redux';
 import reducers from './src/reducers/reducers';
 import HomeScreen from './src/screens/HomeScreen';
 import WishlistScreen from './src/screens/WishlistScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
 
 Stack = createStackNavigator()
 
@@ -19,6 +20,7 @@ export default function App() {
         <Stack.Navigator initialRoute='Home' screenOptions={{headerStyle: {backgroundColor: 'black'}, headerTitleStyle: {color: 'white'}, headerTintStyle: 'white'}}>
           <Stack.Screen name='Home' component={HomeScreen}/>
           <Stack.Screen name='Wishlist' component={WishlistScreen}/>
+          <Stack.Screen name='Settings' component={SettingsScreen}/>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

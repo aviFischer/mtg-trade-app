@@ -89,7 +89,7 @@ class WishlistScreen extends React.Component {
             onPress={() => { if(this.state.cardName) this.props.addCard({name: this.state.cardName, quantity: 1}) }}>
             <Text style={styles.whiteText}>Add Card</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={() => this.props.clear()}>
+          <TouchableOpacity style={styles.button} onPress={() => this.setState({cardName: ''})}>
             <Text style={styles.whiteText}>Clear</Text>
           </TouchableOpacity>
         </View>
@@ -126,9 +126,6 @@ const mapDispatchToProps = (dispatch) => ({
   decrement: (index) => {
     dispatch(actions.decrementCardOnWishlist(index));
   },
-  clear: () => {
-    dispatch(actions.clearWishlist());
-  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WishlistScreen);
